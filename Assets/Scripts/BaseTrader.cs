@@ -3,26 +3,22 @@ using UnityEngine;
 
 public abstract class BaseTrader : MonoBehaviour
 {
-    public void Trade(int reputation)
+    public void Trade()
     {
-
-        if (reputation >= 75)
-        {
-            ArmorTrade();
-        }
-        else if (reputation >= 50)
-        {
-            FruitTrade();
-        }
-        else
-        {
-            DontTrade();
-        }
+        SelectGoods();
+        NegotiatePrice();
+        PrintReceipt();
     }
 
-    protected abstract void DontTrade();
+    protected abstract void SelectGoods();
 
-    protected abstract void FruitTrade();
+    protected void NegotiatePrice()
+    {
+        Debug.Log("Negotiate for the price");
+    }
 
-    protected abstract void ArmorTrade();
+    protected void PrintReceipt()
+    {
+        Debug.Log("Print receipt");
+    }
 }
